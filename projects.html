@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ========= FAVICON ========== -->
+    <link rel="icon" href="./assets/img/favicon.svg" type="image/svg">
+
+    <!--========== UNICONS ==========-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.css">
+
+    <!--========== BOXICONS ==========-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--========== SWIPER CSS ==========-->
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+
+    <!--========== MAIN CSS ==========-->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/img/tracking.png">
+
+    <!--========== SEO & OPEN GRAPH TAGS ==========-->
+    <meta name="description"
+        content="Portfolio of Revan Josh.J, a highly motivated Frontend Developer and UI/UX Designer.">
+
+    <!-- Facebook / LinkedIn / Discord -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://suriyag1614.github.io/Revz-Portfolio/">
+    <meta property="og:title" content="Revan Portfolio - Frontend Developer & UI/UX Designer">
+    <meta property="og:description"
+        content="Discover my latest web and app design projects. Highly motivated Frontend Developer and UI/UX Designer.">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/Suriyag1614/Revz-Portfolio/main/assets/img/dumrev.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://github.com/Suriyag1614/Revz-Portfolio">
+    <meta property="twitter:title" content="Revan Portfolio - Frontend Developer & UI/UX Designer">
+    <meta property="twitter:description"
+        content="Discover my latest web and app design projects. Highly motivated Frontend Developer and UI/UX Designer.">
+    <meta property="twitter:image"
+        content="https://raw.githubusercontent.com/Suriyag1614/Revz-Portfolio/main/assets/img/dumrev.png">
+
+    <title>Revan Portfolio</title>
+</head>
+
+<body>
+    <!--========== MOBILE HEADER ==========-->
+    <header class="mobile-header">
+        <a href="index.html" class="mobile-logo">Revan Josh</a>
+        <div class="nav__toggle" id="nav-toggle">
+            <i class="uil uil-bars"></i>
+        </div>
+    </header>
+    <aside class="sidebar" id="side-bar">
+        <nav class="nav">
+            <div class="nav__logo">
+                <a href="index.html" class="nav__logo-text">R</a>
+            </div>
+
+            <div class="nav__menu">
+                <div class="menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="index.html#home" class="nav__link active-link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="index.html#about" class="nav__link">About</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="index.html#skills" class="nav__link">Skills</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="projects.html" class="nav__link">Projects</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="index.html#services" class="nav__link">Services</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="index.html#contact" class="nav__link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="btn__share">
+                <i class="uil uil-share-alt social__share"></i>
+            </div>
+
+            <div class="nav__close" id="nav-close">
+                <i class="uil uil-times"></i>
+            </div>
+        </nav>
+    </aside>
+    <!--========== MAIN ==========-->
+    <main class="main">
+        <section class="work section" id="work" style="padding-top: 6rem;">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <a href="index.html" class="button"><i class="uil uil-arrow-left"></i> Back to Home</a>
+            </div>
+
+            <h2 data-heading="Portfolio" class="section__title">All Projects</h2>
+
+            <div class="work__filters">
+                <span class="work__item active-work" data-filter="all">All</span>
+                <span class="work__item" data-filter=".design">Graphic Design</span>
+                <span class="work__item" data-filter=".web">Web Development</span>
+            </div>
+
+            <div class="work__container container grid">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </section>
+
+        <!-- Portfolio Popup -->
+        <div class="portfolio__popup">
+            <div class="portfolio__popup-inner">
+                <div class="portfolio__popup-content grid">
+                    <span class="portfolio__popup-close"><i class="uil uil-times"></i></span>
+                    <div class="pp__thumbnail">
+                        <img src="" alt="" class="portfolio__popup-img">
+                    </div>
+                    <div class="portfolio__popup-info">
+                        <div class="portfolio__popup-subtitle">Project - <span>Category</span></div>
+                        <div class="portfolio__popup-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer__bg">
+                <div class="footer__container container grid">
+                    <div>
+                        <h1 class="footer__title">Revan</h1>
+                        <span class="footer__subtitle">Frontend Developer | Ui/Ux Designer</span>
+                    </div>
+
+                    <ul class="footer__links">
+                        <li><a href="index.html#services" class="footer__link">Services</a></li>
+
+                        <li><a href="projects.html" class="footer__link">Projects</a></li>
+
+                        <li><a href="index.html#contact" class="footer__link">Contact Me</a></li>
+
+
+                    </ul>
+
+                    <div class="footer__socials">
+                        <a href="#" class="footer__social">
+                            <i class="uil uil-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer__social">
+                            <i class="uil uil-instagram"></i>
+                        </a>
+                        <a href="https://github.com/Revanjoshh" target="_blank" class="footer__social">
+                            <i class="uil uil-github"></i>
+                        </a>
+                        <a href=" https://www.linkedin.com/in/revanjosh-16b213273/" target="_blank"
+                            class="footer__social">
+                            <i class="uil uil-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="footer__copy">&#169; Developed by Revan Josh . J</p>
+            </div>
+        </footer>
+    </main>
+    <!--========== SCROLL UP ==========-->
+
+
+    <!--========== MIXITUP FILTER ==========-->
+    <script src="./js/mixitup.min.js"></script>
+
+    <!--========== SWIPER JS ==========-->
+    <script src="./js/swiper-bundle.min.js"></script>
+
+    <!--========== SUPABASE ==========-->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./js/supabase-config.js"></script>
+
+    <!--========== MAIN JS ==========-->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

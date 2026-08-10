@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/img/tracking.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            background-color: var(--body-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #loginView {
+            background: var(--container-color);
+            padding: 3rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        #loginView input {
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--text-color-light);
+            background: var(--body-color);
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+        #loginView button {
+            width: 100%;
+        }
+        #adminDashboardView {
+            display: none;
+            width: 100%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loginView">
+        <h2 style="margin-bottom: 1.5rem;">Admin Login</h2>
+        <input type="email" id="adminEmail" placeholder="Enter Email" required>
+        <div style="position: relative; margin-bottom: 1rem;">
+            <input type="password" id="adminPassword" placeholder="Enter Password" required style="margin-bottom: 0;">
+            <i class="uil uil-eye" id="togglePassword" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-color-light);"></i>
+        </div>
+        <button id="loginBtn" class="button">Login</button>
+        <p id="loginError" style="color: red; display: none; margin-top: 1rem; font-size: 0.9rem;">Invalid email or password.</p>
+        <a href="index.html" style="display: block; margin-top: 1rem; color: var(--text-color-light);"><i class="uil uil-arrow-left"></i> Back to Portfolio</a>
+    </div>
+
+    <div id="adminDashboardView">
+        <!-- The extracted admin dashboard HTML goes here -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+            <h2>Admin Dashboard</h2>
+            <a href="index.html" class="button button--flex">
+                <i class="uil uil-arrow-left button__icon"></i> Back to Portfolio
+            </a>
+        </div>
+        
+        <div id="adminMainView" class="admin__view">
+            <div class="admin__add-project-box" id="addProjectTrigger" style="margin-bottom: 2rem;">
+                <div class="admin__box-icon-wrapper">
+                    <i class="uil uil-plus admin__box-icon"></i>
+                </div>
+                <h3 class="admin__box-title">Add Project</h3>
+                <p class="admin__box-desc">Create and showcase a new project in your portfolio list.</p>
+            </div>
+
+            <div class="admin__manage-section">
+                <h3 class="admin__box-title" style="text-align: left; margin-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 0.5rem; font-size: var(--normal-font-size);">
+                    Manage Projects
+                </h3>
+                <div id="adminProjectsList" class="admin__projects-list">
+                    <!-- Custom projects list will be rendered dynamically here -->
+                </div>
+            </div>
+        </div>
+
+        <div id="adminFormView" class="admin__view admin__view-hidden">
+            <div style="display: flex; align-items: center; column-gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 0.75rem;">
+                <span id="btnBackToAdmin" style="font-size: 1.5rem; width: 2.25rem; height: 2.25rem; background: rgba(255, 255, 255, 0.05); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-color);">
+                    <i class="uil uil-arrow-left"></i>
+                </span>
+                <h3 class="admin__box-title" style="margin-bottom: 0;">Add New Project</h3>
+            </div>
+
+            <form id="addProjectForm" class="admin__form">
+                <div class="admin__input-group">
+                    <label for="projName" class="admin__label">Project Name</label>
+                    <input type="text" id="projName" class="admin__input" placeholder="e.g., E-commerce Redesign" required>
+                </div>
+
+                <div class="admin__input-group">
+                    <label for="projDesign" class="admin__label">Category</label>
+                    <select id="projDesign" class="admin__select" required>
+                        <option value="" disabled selected>Select category</option>
+                        <option value="web">Web</option>
+                        <option value="app">App</option>
+                        <option value="design">Design</option>
+                    </select>
+                </div>
+
+                <div class="admin__input-group admin__view-hidden" id="linkFieldContainer">
+                    <label for="projLink" class="admin__label">Project Link</label>
+                    <input type="url" id="projLink" class="admin__input" placeholder="e.g., https://myproject.com">
+                </div>
+
+                <div class="admin__input-group">
+                    <label class="admin__label">Project Image</label>
+                    <div class="admin__dropzone" id="imageDropzone">
+                        <i class="uil uil-image-upload admin__dropzone-icon"></i>
+                        <p class="admin__dropzone-text">Drag & drop your image here, or <span>browse</span></p>
+                        <p class="admin__dropzone-sub">Supports PNG, JPG, JPEG, WEBP (Max 5MB)<br>
+                        <em>Note: For Web/App, if no image is provided, a live screenshot of the Project Link will be automatically generated! Graphic Design projects must upload an image.</em></p>
+                        <input type="file" id="projImage" class="admin__file-input" accept="image/*">
+                        
+                        <div class="admin__dropzone-preview admin__preview-hidden" id="imagePreviewContainer">
+                            <img src="" alt="Preview" class="admin__image-preview" id="imagePreview">
+                            <button type="button" class="admin__preview-remove" id="removePreviewBtn">
+                                <i class="uil uil-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin__input-group">
+                    <label for="projDesc" class="admin__label">Description</label>
+                    <textarea id="projDesc" class="admin__textarea" placeholder="Provide details about the project..." required></textarea>
+                </div>
+
+                <div class="admin__form-buttons">
+                    <button type="button" class="admin__btn admin__btn-secondary" onclick="document.getElementById('btnBackToAdmin').click()">Cancel</button>
+                    <button type="submit" class="admin__btn admin__btn-primary">Add Project</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="admin__toast" id="adminToast">
+            <i class="uil uil-check-circle admin__toast-icon"></i>
+            <span class="admin__toast-msg">Project added successfully!</span>
+        </div>
+    </div>
+
+    <!--========== SUPABASE ==========-->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./js/supabase-config.js"></script>
+
+    <!--========== ADMIN JS ==========-->
+    <script src="./js/admin.js"></script>
+</body>
+</html>
+
